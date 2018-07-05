@@ -1,8 +1,12 @@
-import commonjs from 'rollup-plugin-commonjs';
-import nodeResolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
 
-export default {
+const commonjs = require('rollup-plugin-commonjs');
+const nodeGlobals = require('rollup-plugin-node-globals');
+const nodeBuiltins = require('rollup-plugin-node-builtins');
+const nodeResolve = require('rollup-plugin-node-resolve');
+const jsonPlugin = require('rollup-plugin-json');
+const babel = require('rollup-plugin-babel');
+
+module.exports = {
   input: 'index.js',
   output: {
     file: 'dist/mongodb-extjson.js',
@@ -10,8 +14,11 @@ export default {
     name: 'mongodb-extjson',
   },
   plugins: [
+    jsonPlugin(),
+    nodeBuiltins(),
     nodeResolve(),
     commonjs(),
+    nodeGlobals(),
     babel({
       presets: [
         [
