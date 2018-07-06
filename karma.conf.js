@@ -4,7 +4,6 @@ const rollupConfig = require('./rollup.config.js');
 
 const onwarn = warning => {
   if (warning.code === 'CIRCULAR_DEPENDENCY' || warning.code === 'UNRESOLVED_IMPORT') return;
-  console.log(warning.code);
   console.warn(warning.toString());
 };
 

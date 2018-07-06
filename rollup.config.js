@@ -1,3 +1,4 @@
+'use strict';
 
 const commonjs = require('rollup-plugin-commonjs');
 const nodeGlobals = require('rollup-plugin-node-globals');
@@ -11,7 +12,7 @@ module.exports = {
   output: {
     file: 'dist/mongodb-extjson.js',
     format: 'umd',
-    name: 'mongodb-extjson',
+    name: 'mongodb-extjson'
   },
   plugins: [
     jsonPlugin(),
@@ -30,5 +31,5 @@ module.exports = {
       ]
     })
   ],
-  external: ['bson'],
-}
+  external: ['bson']
+};

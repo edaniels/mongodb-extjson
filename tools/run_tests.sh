@@ -11,12 +11,7 @@ node_version=$($node --version)
 if [ $# -eq 0 ]; then
 
     # run node tests
-    mocha ./test/
-
-    node_exit_code=$?
-
-    # if node exit status not ok, exit with code
-    if [[ $node_exit_code != 0 ]] ; then exit $node_exit_code ; fi
+    mocha ./test/ &&
 
     # check if Node version > 4.x.x
     if [[ $node_version != v4* ]] ; then
@@ -38,8 +33,3 @@ else
     ./node_modules/karma/bin/karma start karma.conf.js
 
 fi
-
-exit_code=$?
-
-# exit with code
-exit $exit_code
