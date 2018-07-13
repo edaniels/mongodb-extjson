@@ -1,21 +1,34 @@
 {
-  "name": "mongodb-extjson",
-  "version": "3.0.2",
-  "description": "MongoDB Extended JSON library",
-  "main": "index.js",
-  "module": "dist/mongodb-extjson.esm.js",
-  "browser": {
-    "./index.js": "./dist/mongodb-extjson.browser.umd.js",
-    "./dist/mongodb-extjson.esm.js": "./dist/mongodb-extjson.browser.esm.js"
-  },
-  "directories": {
-    "lib": "./lib"
-  },
+  "name": "mongodb-stitch-extjson",
+  "version": "1.0.0",
+  "description": "MongoDB Extended JSON library for Stitch",
+  "keywords": [
+    "mongodb",
+    "json",
+    "extended",
+    "extjson",
+    "parser",
+    "serializer",
+    "deserializer",
+    "stitch"
+  ],
+  "license": "Apache-2.0",
+  "author": "Eric Daniels <eric.daniels@mongodb.com>",
   "files": [
     "lib",
     "index.js",
     "dist"
   ],
+  "main": "index.js",
+  "module": "dist/ejson.esm.js",
+  "browser": {
+    "./index.js": "./dist/ejson.browser.umd.js",
+    "./dist/ejson.esm.js": "./dist/ejson.browser.esm.js"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "repository": "edaniels/mongodb-extjson",
   "scripts": {
     "test": "mocha test/",
     "coverage": "istanbul cover _mocha -- --recursive -t --ui tdd test/",
@@ -25,25 +38,10 @@
     "prepublishOnly": "npm run build",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mongodb-js/mongodb-extjson.git"
+  "dependencies": {
+    "mongodb-stitch-bson": "1.0.0",
+    "buffer": "^5.1.0"
   },
-  "keywords": [
-    "mongodb",
-    "json",
-    "extended",
-    "extjson",
-    "parser",
-    "serializer",
-    "deserializer"
-  ],
-  "author": "Christian Kvalheim",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/mongodb-js/mongodb-extjson/issues"
-  },
-  "homepage": "https://github.com/mongodb-js/mongodb-extjson#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-plugin-external-helpers": "^6.22.0",
@@ -61,9 +59,5 @@
     "rollup-plugin-commonjs": "^8.3.0",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-resolve": "^3.0.3"
-  },
-  "dependencies": {
-    "bson": "3.0.1",
-    "buffer": "^5.1.0"
   }
 }

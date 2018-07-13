@@ -3,7 +3,7 @@
 const Buffer = require('buffer').Buffer;
 var extJSON = require('..'),
   //BSON = require('../../js-bson'),
-  BSON = require('bson'),
+  BSON = require('mongodb-stitch-bson'),
   expect = require('chai').expect,
   fs = require('fs'),
   path = require('path');

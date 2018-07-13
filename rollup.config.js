@@ -43,13 +43,13 @@ const browserPlugins = [
   })
 ];
 const external = Object.keys(pkg.dependencies || {});
-const defaultName = 'mongodb-extjson';
+const defaultName = 'ejson';
 
 export default [
   {
     input,
     output: {
-      file: 'dist/mongodb-extjson.esm.js',
+      file: 'dist/ejson.esm.js',
       format: 'es',
       name: defaultName,
       exports: 'named'
@@ -60,7 +60,7 @@ export default [
   {
     input,
     output: {
-      file: 'dist/mongodb-extjson.browser.umd.js',
+      file: 'dist/ejson.browser.umd.js',
       format: 'umd',
       name: defaultName,
       exports: 'named',
@@ -75,7 +75,7 @@ export default [
   {
     input,
     output: {
-      file: 'dist/mongodb-extjson.browser.esm.js',
+      file: 'dist/ejson.browser.esm.js',
       format: 'es',
       name: defaultName,
       exports: 'named'
@@ -86,7 +86,7 @@ export default [
   {
     input,
     output: {
-      file: 'dist/mongodb-extjson.bundle.js',
+      file: 'dist/ejson.bundle.js',
       format: 'iife',
       name: defaultName,
       exports: 'named',

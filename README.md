@@ -1,4 +1,4 @@
-# MongoDB Extended JSON Library  [![][npm_img]][npm_url] [![][travis_img]][travis_url]
+# MongoDB Stitch Extended JSON Library [![][npm_img]][npm_url] [![][travis_img]][travis_url]
 
 
 The MongoDB Extended JSON Library allows you to convert MongoDB documents to Extended JSON, and vice versa. See the Extended JSON specification [here](https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
@@ -12,7 +12,7 @@ Serialize a document using `EJSON.stringify(value, reducer, indents, options)`. 
 `options` currently supports a single option, `relaxed`; with `options = {relaxed: true}`, the returned object will be in the more readable "relaxed" extended JSON format. 
 
 ```js
-let EJSON = require('mongodb-extjson'),
+let EJSON = require('mongodb-stitch-extjson'),
 	Int32 = require('mongodb').Int32;
     
 var doc = { int32: new Int32(10) };
@@ -31,7 +31,7 @@ Our [js-bson](https://github.com/mongodb/js-bson) library is included as a depen
 This works identically to the previous serialize example, but does not require including the MongoDB driver. The BSON types are all available under EJSON.BSON.
 
 ```js
-let EJSON = require('mongodb-extjson'),
+let EJSON = require('mongodb-stitch-extjson'),
 	Int32 = EJSON.BSON.Int32;
     
 var doc = { int32: new Int32(10) };
@@ -46,7 +46,7 @@ The library also allows converting extended JSON strings to Javascript objects, 
 This method supports the option `strict`. By default, `strict` is true; if `strict` is set to `false`, the parser will attempt to return native JS types where possible, rather than BSON types (i.e. return a `Number` instead of a `BSON.Int32` object, etc.) 
 
 ```js
-let EJSON = require('mongodb-extjson');
+let EJSON = require('mongodb-stitch-extjson');
 
 var text = '{"int32":{"$numberInt":"10"}}';
 
@@ -63,7 +63,7 @@ console.log(EJSON.parse(text, {strict: false}));
 Although we include the pure Javascript BSON parser by default, you can also use a different BSON parser with this library, such as [bson-ext](https://www.npmjs.com/package/bson-ext). For example:
 
 ```js
-let EJSON = require('mongodb-extjson'),
+let EJSON = require('mongodb-stitch-extjson'),
 	BSON = require('bson-ext'),
     Int32 = BSON.Int32;
 
@@ -79,8 +79,8 @@ var text = '{"int32":{"$numberInt":"10"}}';
 console.log(EJSON.parse(text));
 ```
 
-[travis_img]: https://api.travis-ci.org/mongodb-js/mongodb-extjson.svg?branch=master
-[travis_url]: https://travis-ci.org/mongodb-js/mongodb-extjson
+[travis_img]: https://api.travis-ci.org/edaniels/mongodb-extjson.svg?branch=master
+[travis_url]: https://travis-ci.org/edaniels/mongodb-extjson
 [npm_img]: https://img.shields.io/npm/v/mongodb-extjson.svg
 [npm_url]: https://www.npmjs.org/package/mongodb-extjson
 
@@ -88,8 +88,8 @@ console.log(EJSON.parse(text));
 
 #### What are the various files in dist?
 
-* `mongodb-extjson.bundle.js` is a bundled up version of the library that is suitable for inclusion in an HTML page via a `<script>` tag.
-* `mongodb-extjson.esm.js` is a rolled up version of the library that is suitable for interoperation with bundlers that work better with ES modules.
-* `mongodb-extjson.browser.esm.js` is similar to `mongodb-extjson.esm.js` but is ultimately intened for consumers producing browser bundles. It also pulls in any browser specific dependencies/code that may be needed.
-* `mongodb-extjson.browser.umd.js` is similar to the source code of this library but is ultimately intened for consumers producing browser bundlers expecting a UMD format. It also pulls in any browser specific dependencies/code that may be needed.
+* `ejson.bundle.js` is a bundled up version of the library that is suitable for inclusion in an HTML page via a `<script>` tag.
+* `ejson.esm.js` is a rolled up version of the library that is suitable for interoperation with bundlers that work better with ES modules.
+* `ejson.browser.esm.js` is similar to `ejson.esm.js` but is ultimately intened for consumers producing browser bundles. It also pulls in any browser specific dependencies/code that may be needed.
+* `ejson.browser.umd.js` is similar to the source code of this library but is ultimately intened for consumers producing browser bundlers expecting a UMD format. It also pulls in any browser specific dependencies/code that may be needed.
 
